@@ -5,8 +5,8 @@ __import__('pysqlite3')
 import sys
 sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
-# Now apply no_chroma_patch and continue
-import no_chroma_patch
+# # Now apply no_chroma_patch and continue
+# import no_chroma_patch
 import os
 
 os.environ["CHROMA_DB_IMPL"] = "duckdb"
