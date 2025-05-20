@@ -70,13 +70,13 @@ with st.sidebar:
     show_keys = st.checkbox("Show API Key Fields", value=False)
     
     if show_keys:
-        gemini_key = st.text_input("Gemini API Key", type="password", 
-                                  value=os.environ.get("GEMINI_API_KEY", ""))
+        google_key = st.text_input("Google API Key", type="password", 
+                                  value=os.environ.get("GOOGLE_API_KEY", ""))
         serper_key = st.text_input("Serper API Key", type="password",
                                   value=os.environ.get("SERPER_API_KEY", ""))
         
-        if gemini_key:
-            os.environ["GEMINI_API_KEY"] = gemini_key
+        if google_key:
+            os.environ["GOOGLE_API_KEY"] = google_key
         if serper_key:
             os.environ["SERPER_API_KEY"] = serper_key
             
