@@ -12,7 +12,7 @@ import os
 #                            temperature=0.5,
 #                            google_api_key=os.getenv("GEMINI_API_KEY"))
 
-os.environ["GEMINI_API_KEY"] = os.getenv("GEMINI_API_KEY")
+os.environ["GOOGLE_API_KEY"] = os.getenv("GOOGLE_API_KEY")
 api_key = "AIzaSyA_jVLib-F27Fe6GvPqdHH5VQZ1eRJUJbY"
 litellm.api_key = api_key
 GEMINI_API_KEY = api_key 
