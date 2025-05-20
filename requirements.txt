@@ -1,7 +1,7 @@
 langchain
 langchain-community
 langchain-huggingface
-crewai==0.20.3
+crewai
 crewai_tools
 typing-extensions
 python-dotenv
