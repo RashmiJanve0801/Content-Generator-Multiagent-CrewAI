@@ -3,6 +3,8 @@ import streamlit as st
 import os
 os.environ["CHROMA_DB_IMPL"] = "duckdb"
 
+import no_chroma_patch
+
 from crewai import Crew, Process
 from agents import news_researcher, news_writer
 from tasks import research_task, write_task
