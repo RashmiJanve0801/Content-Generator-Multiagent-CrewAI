@@ -1,13 +1,28 @@
 import sys
 from unittest.mock import MagicMock
 
-# Mock chromadb module
-sys.modules['chromadb'] = MagicMock()
-sys.modules['chromadb.api'] = MagicMock()
-sys.modules['chromadb.api.types'] = MagicMock()
-sys.modules['chromadb.utils'] = MagicMock()
+# Completely block chromadb and its submodules
+for mod in ['chromadb', 'chromadb.api', 'chromadb.errors', 
+            'chromadb.api.types', 'chromadb.utils', 
+            'chromadb.config', 'chromadb.api.models']:
+    sys.modules[mod] = MagicMock()
 
-from crewai.utilities.embedding_configurator import EmbeddingConfigurator
+# Create a more thorough mock for chromadb
+chromadb_mock = MagicMock()
+chromadb_mock.errors = MagicMock()  # Mock the errors submodule
+sys.modules['chromadb'] = chromadb_mock
 
-# Disable embedding function to prevent chromadb/sqlite usage
-EmbeddingConfigurator.get_default_embedding_function = lambda *_args, **_kwargs: None
+# Mock the KnowledgeStorage class to avoid chromadb dependencies
+class MockKnowledgeStorage:
+    def __init__(self, *args, **kwargs):
+        pass
+    def add(self, *args, **kwargs):
+        pass
+    def get(self, *args, **kwargs):
+        return []
+    def clear(self, *args, **kwargs):
+        pass
+
+# Inject our mock before crewai tries to import the real one
+sys.modules['crewai.knowledge.storage.knowledge_storage'] = MagicMock()
+sys.modules['crewai.knowledge.storage.knowledge_storage'].KnowledgeStorage = MockKnowledgeStorage
