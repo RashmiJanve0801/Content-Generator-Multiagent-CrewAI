@@ -103,7 +103,7 @@ topic = st.text_input("🔎 Research Topic:", placeholder="AI in healthcare")
 
 # Generate button with emoji
 if st.button("🚀 Generate", disabled=not topic, type="primary"):
-    if not os.environ.get("GEMINI_API_KEY") or not os.environ.get("SERPER_API_KEY"):
+    if not os.environ.get("GOOGLE_API_KEY") or not os.environ.get("SERPER_API_KEY"):
         st.error("⚠️ Please configure API keys in the sidebar")
     else:
         try:
