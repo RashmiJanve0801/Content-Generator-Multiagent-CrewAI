@@ -15,7 +15,7 @@ import os
 os.environ["GOOGLE_API_KEY"] = os.getenv("GOOGLE_API_KEY")
 api_key = "AIzaSyA_jVLib-F27Fe6GvPqdHH5VQZ1eRJUJbY"
 litellm.api_key = api_key
-GEMINI_API_KEY = api_key 
+GOOGLE_API_KEY = api_key 
 
 llm = LLM(
     # model="gemini/gemini-1.5-pro-latest",
