@@ -1,0 +1,12 @@
+langchain
+langchain-community
+langchain-huggingface
+crewai
+crewai_tools
+typing-extensions
+python-dotenv
+langchain_google_genai
+sentence_transformers
+chromadb
+langchain_chroma
+streamlit
