@@ -10,3 +10,4 @@ python-dotenv
 langchain_google_genai
 sentence_transformers
 streamlit
+pysqlite3-binary
